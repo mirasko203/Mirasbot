@@ -167,4 +167,13 @@ def process_admin_reply(m):
         reply_temp.pop(m.chat.id)
 
 # ------------------ RUN ------------------
-bot.polling(none_stop=True)
+import time
+
+while True:
+    try:
+        bot.polling(none_stop=True)
+    except Exception as e:
+        print("Ошибка подключения к Telegram:", e)
+        time.sleep(5)  # ждём 5 секунд и пробуем снова
+
+
